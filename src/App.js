@@ -1,24 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import { Counter } from './app/features/counter/Counter';
+import { Car } from './app/features/car/Car';
+import Example from './components/reactToPrint';
+
+// import Example from './components/reactToPrint';
+
+import configureStore from './store/configureStore';
+import { cityAdded, cityRemoved, getCities } from './store/city';
+import { addCountry } from './store/country';
 
 function App() {
+
+  let store = configureStore()
+
+  //last virgion
+  // store.dispatch((dispatch, getState) => cityAdded(1, dispatch, getState))
+
+
+  store.dispatch(cityAdded(1))
+  store.dispatch(addCountry({ id: 1, name: 'egy' }))
+
+
+
+  // store.dispatch(cityAdded({ id: 2, name: 'alex' }))
+
+  // store.dispatch(cityRemoved({ id: 1, name: 'cairo' }))
+
+  // let x = getCities(store.getState());
+  // let y = getCities(store.getState());
+
+  // console.log(x);
+  // console.log(y);
+  // console.log(x === y);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <Counter />
+      <Car /> */}
+      {/* <Example /> */}
+      {/* <Example /> */}
+    </>
   );
 }
 
