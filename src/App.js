@@ -5,9 +5,10 @@ import Example from './components/reactToPrint';
 
 // import Example from './components/reactToPrint';
 
-import configureStore from './store/configureStore';
+import configureStore from './newStore/configureStore';
 import { cityAdded, cityRemoved, getCities } from './store/city';
 import { addCountry } from './store/country';
+import { loadnews } from './newStore/entities/news';
 
 function App() {
 
@@ -17,10 +18,21 @@ function App() {
   // store.dispatch((dispatch, getState) => cityAdded(1, dispatch, getState))
 
 
-  store.dispatch(cityAdded(1))
-  store.dispatch(addCountry({ id: 1, name: 'egy' }))
+  // store.dispatch(cityAdded(1));
+  // store.dispatch(addCountry({ id: 1, name: 'egy' }));
 
 
+  // store.dispatch({
+  //   type: 'apiRequest',
+  //   payload: {
+  //     url: '/news',
+  //     onSccess: 'ADD_NEWS',
+  //     onError: 'error'
+  //   }
+  // });
+
+
+  store.dispatch(loadnews());
 
   // store.dispatch(cityAdded({ id: 2, name: 'alex' }))
 

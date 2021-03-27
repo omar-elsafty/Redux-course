@@ -3,6 +3,7 @@ import logger from "./middleware/logger";
 import { logger2 } from "./middleware/logger";
 import customThunk from './middleware/customThunk';
 import errorMiddleWare from './middleware/errorMiddleWare';
+import api from "./middleware/apiMidlleWare";
 
 
 import reducer from "./reducer";
@@ -12,8 +13,9 @@ export default function () {
         reducer,
         // middleware: [logger(': extra Parameter is logging ...'), logger2, customThunk],
         middleware: [logger(': extra Parameter is logging ...'),
-            customThunk,
-            errorMiddleWare
+            // customThunk,
+            // errorMiddleWare,
+            api
         ],
     })
 }
